@@ -18,6 +18,11 @@ public class SuccessEntity<T> {
         return ok("成功", data);
 
     }
+
+    public static <T> SuccessEntity<T> fail(){
+        return ok("服务调用失败",null);
+    }
+
     public static <T> SuccessEntity<T> ok(String message, T data) {
         return SuccessEntity.<T>builder()
                 .code(ErrorCode.OK).message(message).data(data)
